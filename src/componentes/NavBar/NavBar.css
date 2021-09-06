@@ -1,0 +1,24 @@
+.navbar{
+    font-family: roboto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.navbar a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar img{
+    margin:2rem;
+}
+.navbar ul{
+
+    list-style:none;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.navbar li{
+    margin:2rem;
+}
