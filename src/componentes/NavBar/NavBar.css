@@ -1,8 +1,11 @@
 .navbar{
     font-family: roboto;
+    height: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    border-bottom-width: 0.5px;
+    border-bottom-style: solid;
 }
 .navbar a{
     display: flex;
@@ -21,4 +24,16 @@
 }
 .navbar li{
     margin:2rem;
+    font-family: Staatliches;
+}
+.navbar span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    width: 5rem;
+    height: 2rem;
+    background-color: #dc3545;
+    font-family: Staatliches;
+    border-radius: 0.2rem;
 }
