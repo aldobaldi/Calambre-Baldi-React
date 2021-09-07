@@ -7,13 +7,12 @@
     border-bottom-width: 0.5px;
     border-bottom-style: solid;
 }
-.navbar a{
+
+.navbar img{
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-.navbar img{
-    margin:2rem;
+    justify-content: center; 
+    padding-left: 1rem;
 }
 .navbar ul{
 
@@ -31,9 +30,5 @@
     justify-content: center;
     align-items: center;
     margin: 2rem;
-    width: 5rem;
-    height: 2rem;
-    background-color: #dc3545;
-    font-family: Staatliches;
-    border-radius: 0.2rem;
+  
 }
