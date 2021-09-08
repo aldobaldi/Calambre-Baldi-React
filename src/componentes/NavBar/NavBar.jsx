@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import './NavBar.css';
 import logo from '../../multimedia/svg_iconos/logosvg.svg'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -15,9 +15,9 @@ export const NavBar = () => {
                 <li>Nosotros</li>
                 <li>Clientes</li>
             </ul>   
-            <span>
-                <ShoppingCartIcon/>
-            </span>
+            <div>
+                <span> <ShoppingCartIcon/> 1 </span>
+            </div>
         </div>
     )
 }
