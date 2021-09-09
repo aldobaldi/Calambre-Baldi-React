@@ -11,10 +11,11 @@
 .header h1{
     font-family: Staatliches, Arial;
 	position: absolute;
-    left: 50%;
-    top:30%;
+    left: 40%;
+    top:25%;
  	font-size: 3rem;
-     text-align: center;
-     justify-content: center;
+    text-align: center;
+    justify-content: center;
+    color:white;
 }
 
