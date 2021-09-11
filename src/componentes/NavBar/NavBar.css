@@ -32,3 +32,15 @@
     margin: 2rem;
   
 }
+.navbar button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 1.5rem;
+    color:white;
+    border:none;
+    background-color: rgb(233,90,92);
+}
