@@ -1,0 +1,39 @@
+.card{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-radius:10px;
+    border-width: 1.5px;
+    align-items: center;
+    height: 23rem;
+    width: 15rem;
+}
+.card h1{
+
+    font-family: Staatliches, Arial;
+    font-size: 1.5rem;
+}
+.card img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 170px;
+}
+.card p{
+    justify-content: center;
+    text-align: center;
+    text-justify: auto; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.card button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 1.5rem;
+    color:white;
+    border:none;
+    background-color: rgb(233,90,92);
+}

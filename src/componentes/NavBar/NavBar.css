@@ -1,6 +1,10 @@
 .navbar{
     font-family: roboto;
     height: 5rem;
+   /* display:grid;
+    gap:1rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
