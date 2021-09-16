@@ -1,7 +1,7 @@
 import * as React from "react"
 import NavBar from './componentes/NavBar/NavBar.jsx';
 import Header from "./componentes/Header/Header.jsx";
-import CardContainer from './Containers/CardContainer.jsx';
+import CardContainer from './Containers/CardContainer/CardContainer.jsx';
 
 function App() {
   return (

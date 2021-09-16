@@ -1,5 +1,6 @@
 import * as React from 'react'
-import Card from './componentes/Card/Card.jsx'
+import Card from '../../componentes/Card/Card.jsx'
+import './CardContainer.css'
 
 export const CardContainer = () => {
 
@@ -12,15 +13,15 @@ export const CardContainer = () => {
     }, []);
 
   /*EXTRAER  DATA DEL ARREGLO**/
-  const getData=()=>{
 
+  const getData=()=>{
     return new Promise((resolve)=>{
       setTimeout(()=> resolve(productos), 2000)
     });
 };
 
 return (
-  <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+  <div className='CardContainer'>
       {datos?.map((producto) => {
         return (
           <Card
