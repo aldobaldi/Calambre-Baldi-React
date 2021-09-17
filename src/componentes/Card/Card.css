@@ -1,13 +1,14 @@
 .card{
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     border: solid;
     border-radius:10px;
     border-width: 1.5px;
     align-items: center;
-    height: 23rem;
-    width: 15rem;
+    justify-items: center;
+    height: 20rem;
+    width: 18rem;
+    margin: 0%;
 }
 .card h1{
 
@@ -15,10 +16,11 @@
     font-size: 1.5rem;
 }
 .card img{
+    object-fit: contain;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 5px;
-    width: 170px;
+    width: 70%;
+    height: 50%;
 }
 .card p{
     justify-content: center;
@@ -26,10 +28,10 @@
     text-justify: auto; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .card button{
+    margin: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem;
     height: 2rem;
     width: 6rem;
     border-radius: 1.5rem;
