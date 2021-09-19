@@ -5,24 +5,31 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 export const NavBar = () => {
 
-    const [numero, setNumero] = useState(0);
+    const [numero, setNumero] = useState(1);
 
     const Aumentar = () => {
       setNumero((prevState) => prevState + 1);
+      if (numero === 10){
+          setNumero((prevState)=>prevState = 10)
+      }
     }
     const Disminuir =()=>{
+        
         setNumero((prevState)=>prevState -1);
+        if (numero===1){
+            setNumero((prevState)=>prevState=1);
+        }
     }
+
+
 
     return (
         <Fragment>
             <nav className="navbar">
                 <img 
-                    src= {logo} alt="Logo Empresa" height="80" width="150">
+                    src= {logo} alt="Logo Empresa" height="80" width="150">        
                 </img>
                 <ul>
-                    <li>Servicios</li>
-                    <li>Tienda</li>
                     <li>Nosotros</li>
                     <li>Clientes</li>
                 </ul>   
