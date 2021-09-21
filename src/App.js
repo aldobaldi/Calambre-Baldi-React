@@ -1,16 +1,17 @@
 import * as React from "react"
 import NavBar from './componentes/NavBar/NavBar.jsx';
 import Header from "./componentes/Header/Header.jsx";
-import CardContainer from './Containers/CardContainer/CardContainer.jsx';
-import ItemDetailContainer from '../src/componentes/ItemDetail/ItemDetail'
+import ItemDetailContainer from '../src/Containers/ItemDetailContainer/ItemDetailContainer'
+import ItemListContainer from '../src/Containers/ItemListContainer/ItemListContainer'
 
 function App() {
   return (
     <div className="App.css">
       <NavBar />
       <Header />
-      <CardContainer />
+      {/* <CardContainer /> */}
       <ItemDetailContainer /> 
+      <ItemListContainer />
     </div>   
   );
 }
