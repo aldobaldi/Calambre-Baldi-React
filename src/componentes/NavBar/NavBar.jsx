@@ -1,5 +1,6 @@
 import  React, {useState,Fragment}from 'react'
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 import logo from '../../multimedia/svg_iconos/logosvg.svg'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
@@ -24,14 +25,20 @@ export const NavBar = () => {
 
 
     return (
-        <Fragment>
+        <Fragment> 
             <nav className="navbar">
-                <img 
-                    src= {logo} alt="Logo Empresa" height="80" width="150">        
-                </img>
+                <Link to="/">
+                    <img 
+                        src= {logo} alt="Logo Empresa" height="80" width="150">        
+                    </img> 
+                </Link>
                 <ul>
-                    <li>Nosotros</li>
-                    <li>Clientes</li>
+                    <li>
+                        <Link to="/Nosotros">Nosotros </Link>
+                    </li>
+                    <li>
+                        <Link to="/NuestrasMarcas">Nuestras Marcas</Link>
+                    </li>
                 </ul>   
                 <button onClick ={Aumentar}>Aumentar</button>
                 <button onClick ={Disminuir}>Disminuir</button>

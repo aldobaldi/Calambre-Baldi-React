@@ -25,7 +25,7 @@ return (
       {datos?.map((producto) => {
         return (
           <Card
-            key={producto.id}
+            id={producto.id}
             title={producto.title}
             description={producto.description}
             image={producto.image}

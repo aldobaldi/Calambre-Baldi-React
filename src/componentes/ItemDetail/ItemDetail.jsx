@@ -1,7 +1,8 @@
 import React from 'react'
 import './ItemDetail.css'
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({key, title, image,description,price}) => {
+const ItemDetail = ({id, title, image,description,price}) => {
     return (
         <>
         <div className='container'>
@@ -13,7 +14,7 @@ const ItemDetail = ({key, title, image,description,price}) => {
             <div className='info'>
                 <h1>{title}</h1>
                 <p>{description}</p>
-                <span>Id de Referencia {key}</span>
+                <span>Id de Referencia {id}</span>
                 <h2>Precio U$S {price}</h2>
                 <button>Comprar</button>
             </div>

@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import ItemDetail from '../../componentes/ItemDetail/ItemDetail'
+import { useParams } from 'react-router';
 
 
 const ItemDetailContainer = ()=> {
@@ -7,16 +8,19 @@ const ItemDetailContainer = ()=> {
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const {id} = useParams()
 
+  console.log(useParams())
+  
+  useEffect(() => {
 
- useEffect(() => {
-
-    const url = "http://localhost:3001/products/1";
+    const url = `http://localhost:3001/products/${id}`;
 
     setLoading(true); 
+
     fetch(url)
       .then((Response) => {
-        console.log(Response)
+
         if (Response.ok) {
           return Response.json();
         } else {
@@ -26,7 +30,7 @@ const ItemDetailContainer = ()=> {
       .then((producto) => setProducto(producto))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
      console.log(producto)
 
@@ -43,10 +47,7 @@ const ItemDetailContainer = ()=> {
             description={producto.description}
             price={producto.price}
             />
-
-           
-          }
-           </>)
+          }</>)
      
 
 };
