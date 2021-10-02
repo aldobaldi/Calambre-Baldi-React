@@ -57,11 +57,12 @@
       "image": "https://http2.mlstatic.com/D_Q_NP_715512-MLA46711394228_072021-AB.webp"
     },
     {
+      "id": 8,
       "title": "Autito",
       "description": "Esta es la descripción del producto autito",
       "price": 10008,
-      "image": "https://fotos.perfil.com/2020/01/08/con-el-vision-s-sony-incursiona-en-el-mundo-de-los-autos-853254.jpg",
-      "id": 8
+      "image": "https://fotos.perfil.com/2020/01/08/con-el-vision-s-sony-incursiona-en-el-mundo-de-los-autos-853254.jpg"
+      
     }
   ]
 }

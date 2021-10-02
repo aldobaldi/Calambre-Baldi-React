@@ -1,27 +1,11 @@
-import  React, {useState,Fragment}from 'react'
+import  React, {Fragment}from 'react'
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../multimedia/svg_iconos/logosvg.svg'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
+
 export const NavBar = () => {
-
-    const [numero, setNumero] = useState(1);
-
-    const Aumentar = () => {
-      setNumero((prevState) => prevState + 1);
-      if (numero === 10){
-          setNumero((prevState)=>prevState = 10)
-      }
-    }
-    const Disminuir =()=>{
-        
-        setNumero((prevState)=>prevState -1);
-        if (numero===1){
-            setNumero((prevState)=>prevState=1);
-        }
-    }
-
 
 
     return (
@@ -40,10 +24,8 @@ export const NavBar = () => {
                         <Link to="/NuestrasMarcas">Nuestras Marcas</Link>
                     </li>
                 </ul>   
-                <button onClick ={Aumentar}>Aumentar</button>
-                <button onClick ={Disminuir}>Disminuir</button>
                 <div>
-                    <span> <ShoppingCartIcon/> {numero}</span>
+                    <span> <ShoppingCartIcon/> {}</span>
                 </div>
             </nav>
         </Fragment>

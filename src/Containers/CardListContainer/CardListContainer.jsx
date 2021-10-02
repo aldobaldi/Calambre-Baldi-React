@@ -1,13 +1,13 @@
 import React,{useEffect,useState} from 'react'
-import ItemDetail from '../../componentes/ItemDetail/ItemDetail'
+import "./CardListContainer.css"
 import Card from '../../componentes/Card/Card'
 
-
-const ItemDetailContainer = ()=> {
+const CardListContainer = ()=> {
   
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
 
 
  useEffect(() => {
@@ -36,21 +36,23 @@ const ItemDetailContainer = ()=> {
 
     return (
       <>
-        {loading && <p>Cargando...</p>}
-        {error && <p> Ha habido un error: {error.status} {error.statusText}</p>}
-        {data?.map((producto)=>{
-          return(
-          <Card
-            key={producto.id}
-            title={producto.title}
-            image={producto.image}
-            description={producto.description}
-            price={producto.price}
-            />
-          );
-          })}
+        <div className="CardContainer">
+          {loading && <p>Cargando...</p>}
+          {error && <p> Ha habido un error: {error.status} {error.statusText}</p>}
+          {data?.map((producto)=>{
+            return(
+            <Card
+              id={producto.id}
+              title={producto.title}
+              image={producto.image}
+              description={producto.description}
+              price={producto.price}
+              />
+            );
+            })}
+          </div>
       </>
 );
 };
 
-export default ItemDetailContainer
+export default CardListContainer

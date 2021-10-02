@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Header from '../componentes/Header/Header'
-import CardContainer from '../Containers/CardContainer/CardContainer'
+import CardListContainer from '../Containers/CardListContainer/CardListContainer'
 
 
 const Home = ()=> {
@@ -8,7 +8,7 @@ const Home = ()=> {
         
         <>
             <Header/>
-            <CardContainer/>
+            <CardListContainer/>
         </>
     )
 }
