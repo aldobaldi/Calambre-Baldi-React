@@ -1,6 +1,9 @@
 import  * as React from 'react'
 import './ItemDetail.css'
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import Counter from '../Counter/Counter';
+import ClickCounter from '../ClickCounter/ClickCounter'
 
 
 const ItemDetail = () => {
@@ -9,8 +12,10 @@ const ItemDetail = () => {
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(null);
     const {id} = useParams()
+    const [cantidad,setCantidad]=React.useState(1);
   
-    
+
+
     React.useEffect(() => {
   
       const url = `http://localhost:3001/products/${id}`;
@@ -31,9 +36,29 @@ const ItemDetail = () => {
         .finally(() => setLoading(false));
     }, [id]);
   
-      console.log(`Id producto ${id}`)
-      console.log(`Objeto producto ${producto}`)
-        
+      
+    //Contador
+
+    const aumentar =()=>{
+      if(cantidad < producto.stock){
+      setCantidad((prevState)=> prevState + 1)
+      console.log('sarasa')
+      }else{  
+        setCantidad((prevState) => prevState)
+      }
+
+    }
+    const disminuir =()=>{
+      if(cantidad !== 0){
+        setCantidad((prevState)=> prevState - 1)
+      }else{
+        setCantidad((prevState)=>prevState)
+      }
+    }
+
+    const addItem=()=>{
+
+    }
   
     return (
         <>
@@ -51,7 +76,10 @@ const ItemDetail = () => {
                     <p>{producto.description}</p>
                     <span>Id de Referencia {producto.id}</span>
                     <h2>Precio U$S {producto.price}</h2>
-                    <button>Comprar</button>
+                  
+                    <Counter aumentar={aumentar} disminuir={disminuir}/>
+                    <ClickCounter total = {cantidad}/>
+                    <Link to="/Cart">Agregar a Carrito</Link>
                 </div>
             </div>  
             } 

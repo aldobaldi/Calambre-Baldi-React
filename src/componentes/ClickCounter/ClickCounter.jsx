@@ -1,11 +1,10 @@
 import React from 'react'
 
-function ClickCounter(cantidad) {
+function ClickCounter({total}) {
 
     return (
         <div>
-            <span>Cantidad: {cantidad}</span>
-            <button></button>
+            <span>Cantidad: {total}</span>
         </div>
     )  
 }
