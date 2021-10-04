@@ -3,10 +3,13 @@ import './NavBar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../multimedia/svg_iconos/logosvg.svg'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-
+import {useCart} from '../../Context/CartContext'
 
 export const NavBar = () => {
 
+    const {getQuantity} = useCart();
+
+    console.log(getQuantity)
 
     return (
         <Fragment> 
@@ -25,7 +28,7 @@ export const NavBar = () => {
                     </li>
                 </ul>   
                 <div>
-                    <span> <ShoppingCartIcon/> {}</span>
+                    <span> <ShoppingCartIcon/> {getQuantity()}</span>
                 </div>
             </nav>
         </Fragment>

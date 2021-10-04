@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Counter from '../Counter/Counter';
 import ClickCounter from '../ClickCounter/ClickCounter'
+import {useCart} from "../../Context/CartContext"
 
 
 const ItemDetail = () => {
@@ -13,6 +14,7 @@ const ItemDetail = () => {
     const [error, setError] = React.useState(null);
     const {id} = useParams()
     const [cantidad,setCantidad]=React.useState(1);
+    const {addItem} = useCart() //Traigo el Hooks de context 
   
 
 
@@ -56,10 +58,10 @@ const ItemDetail = () => {
       }
     }
 
-    const addItem=()=>{
-
+    const addToCart =()=>{
+      addItem(producto,cantidad);
     }
-  
+
     return (
         <>
         {loading && <p>Cargando...</p>}
@@ -76,10 +78,10 @@ const ItemDetail = () => {
                     <p>{producto.description}</p>
                     <span>Id de Referencia {producto.id}</span>
                     <h2>Precio U$S {producto.price}</h2>
-                  
                     <Counter aumentar={aumentar} disminuir={disminuir}/>
                     <ClickCounter total = {cantidad}/>
-                    <Link to="/Cart">Agregar a Carrito</Link>
+                    <button onClick={addToCart} >Agregar Carrito</button>
+                    <Link to="/Cart">Ir al Carro</Link>
                 </div>
             </div>  
             } 
