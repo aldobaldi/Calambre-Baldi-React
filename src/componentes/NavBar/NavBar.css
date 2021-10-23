@@ -1,10 +1,6 @@
 .navbar{
-    font-family: roboto;
-    height: 5rem;
-   /* display:grid;
-    gap:1rem;
-    grid-auto-rows: 22rem;
-    grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));*/
+    font-family: Roboto;
+    height:4rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -18,24 +14,26 @@
     justify-content: center; 
     padding-left: 1rem;
 }
-.navbar ul{
 
+.navbar ul{
     list-style:none;
     display: flex;
     flex-direction: row;
     margin: auto;
 }
+
 .navbar li{
     margin:2rem;
     font-family: Staatliches;
 }
+
 .navbar span{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem;
-  
 }
+
 .navbar button{
     display: flex;
     justify-content: center;
@@ -47,4 +45,14 @@
     color:white;
     border:none;
     background-color: rgb(233,90,92);
+}
+
+link {
+    text-Decoration: 'none';
+    color:'black'
+}
+
+.navbar li:hover{
+    transform: scale(1.05);
+    transition: 100ms ease-in; 
 }

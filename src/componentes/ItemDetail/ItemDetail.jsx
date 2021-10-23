@@ -1,91 +1,96 @@
-import  * as React from 'react'
-import './ItemDetail.css'
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import Counter from '../Counter/Counter';
-import ClickCounter from '../ClickCounter/ClickCounter'
-import {useCart} from "../../Context/CartContext"
-
+import * as React from "react";
+import "./ItemDetail.css";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import Counter from "../Counter/Counter";
+import ClickCounter from "../ClickCounter/ClickCounter";
+import { useCart } from "../../Context/CartContext";
+import { getFirestore } from "../../firebase";
 
 const ItemDetail = () => {
+  const [producto, setProducto] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
+  const { id } = useParams();
+  const [cantidad, setCantidad] = React.useState(1);
+  const { addItem } = useCart(); //Traigo el Hooks de context
 
-    const [producto, setProducto] = React.useState([]);
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState(null);
-    const {id} = useParams()
-    const [cantidad,setCantidad]=React.useState(1);
-    const {addItem} = useCart() //Traigo el Hooks de context 
-  
+  React.useEffect(() => {
+    setLoading(true);
+    // Apuntamos a la base de datos.
+    const db = getFirestore();
+    // Apuntamos a una colección.
+    const productsCollection = db.collection("products");
+    // Apuntamos a un elemento en específico.
+    const product = productsCollection.doc(id);
 
+    setLoading(true);
+    product
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("El producto no existe");
+        } else {
+          setProducto({ id: doc.id, ...doc.data() });
+        }
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+  }, [id]);
 
-    React.useEffect(() => {
-  
-      const url = `http://localhost:3001/products/${id}`;
-  
-      setLoading(true); 
-  
-      fetch(url)
-        .then((Response) => {
-  
-          if (Response.ok) {
-            return Response.json();
-          } else {
-            throw Response;
-          }
-        })
-        .then((producto) => setProducto(producto))
-        .catch((error) => setError(error))
-        .finally(() => setLoading(false));
-    }, [id]);
-  
-      
-    //Contador
+  //Contador
 
-    const aumentar =()=>{
-      if(cantidad < producto.stock){
-      setCantidad((prevState)=> prevState + 1)
-      console.log('sarasa')
-      }else{  
-        setCantidad((prevState) => prevState)
-      }
-
+  const aumentar = () => {
+    if (cantidad < producto.stock) {
+      setCantidad((prevState) => prevState + 1);
+    } else {
+      setCantidad((prevState) => prevState);
     }
-    const disminuir =()=>{
-      if(cantidad !== 0){
-        setCantidad((prevState)=> prevState - 1)
-      }else{
-        setCantidad((prevState)=>prevState)
-      }
+  };
+  const disminuir = () => {
+    if (cantidad !== 0) {
+      setCantidad((prevState) => prevState - 1);
+    } else {
+      setCantidad((prevState) => prevState);
     }
+  };
 
-    const addToCart =()=>{
-      addItem(producto,cantidad);
-    }
+  const addToCart = () => {
+    addItem(producto, cantidad);
+  };
 
-    return (
-        <>
-        {loading && <p>Cargando...</p>}
-        {error && <p> Ha habido un error: {error.status} {error.statusText}</p>}
-        {producto &&
-            <div className='container'>
-                <div className='imagen'>
-                    <figure>
-                        <img src={producto.image} alt="Foto del Producto" />
-                    </figure>
-                </div>
-                <div className='info'>
-                    <h1>{producto.title}</h1>
-                    <p>{producto.description}</p>
-                    <span>Id de Referencia {producto.id}</span>
-                    <h2>Precio U$S {producto.price}</h2>
-                    <Counter aumentar={aumentar} disminuir={disminuir}/>
-                    <ClickCounter total = {cantidad}/>
-                    <button onClick={addToCart} >Agregar Carrito</button>
-                    <Link to="/Cart">Ir al Carro</Link>
-                </div>
-            </div>  
-            } 
-        </>)
-}
+  return (
+    <>
+      {loading && <p>Cargando...</p>}
+      {error && (
+        <p>
+          {" "}
+          Ha habido un error: {error.status} {error.statusText}
+        </p>
+      )}
+      {producto && (
+        <div className="container">
+          <div className="imagen-container">
+            <figure className="imagen">
+              <img src={producto.image} alt="Foto del Producto" />
+            </figure>
+          </div>
+          <div className="info">
+            <h1>{producto.title}</h1>
+            <p>Descripcion: {producto.description}</p>
+            <span>Id de Referencia: {producto.id}</span>
+            <h2>Precio U$S {producto.price}</h2>
+            <div>
+              <Counter aumentar={aumentar} disminuir={disminuir} />
+              <ClickCounter total={cantidad} />
+              <button onClick={addToCart}>Agregar Carrito</button>
+            </div>
+            <Link to="/Cart">Ir al Carro</Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
-export default ItemDetail
+export default ItemDetail;

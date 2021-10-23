@@ -1,0 +1,18 @@
+tr{
+    display: flex;
+    flex-direction: row;
+    border:solid;
+    border-width: 0.5px;
+    margin: 0;
+}
+td{
+    border:solid;
+    border-width: 0.5px;
+    margin: 0;
+}
+
+.Tabler{
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+}

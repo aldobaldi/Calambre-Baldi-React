@@ -1,34 +1,47 @@
+div .card{
+    background-color: rgb(245, 244, 244);
+}
 .card{
     display: flex;
     flex-direction: column;
-    border: solid;
+    border: solid gray;
     border-radius:10px;
     border-width: 1.5px;
     align-items: center;
-    justify-items: center;
-    height: 20rem;
-    width: 18rem;
-    margin: 0%;
-}
-.card h1{
+    justify-content: center;
+    height: 21em;
+    width: 19rem;
 
-    font-family: Staatliches, Arial;
-    font-size: 1.5rem;
 }
 .card img{
+    margin-top: 10px;
     object-fit: contain;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 70%;
-    height: 50%;
+    width: 80%;
+    height: 60%;
 }
+.card h1{
+    font-family: Staatliches, Arial;
+    font-size: 1.2rem;
+}
+
 .card p{
     justify-content: center;
     text-align: center;
-    text-justify: auto; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-justify: auto; 
+    font-family:Roboto, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin:5px;
 }
+.card a{
+    text-decoration: none;
+    font-family: Roboto;
+    color: white;
+}
+
 .card button{
-    margin: 0%;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px;
+    font-family:Roboto, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,4 +51,12 @@
     color:white;
     border:none;
     background-color: rgb(233,90,92);
+}
+div .card:hover{
+    transform: scale(1.03);
+    transition: 200ms ease-in;
+}
+.card button:hover{
+    transform: scale(1.1);
+    transition: 200ms ease-in;
 }
