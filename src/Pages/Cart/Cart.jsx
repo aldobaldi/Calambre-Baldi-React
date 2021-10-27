@@ -8,7 +8,7 @@ import "../Cart/Cart.css";
 const Cart = () => {
   const { cart, removeItem, addtotalItem, clear } = useCart();
   const [state, setState] = React.useState(cart);
-  const [vacio, setVacio] = React.useState(false);
+  const [compra, setCompra] = React.useState(false);
 
   React.useEffect(() => {
     if (cart.length !== 0) {
@@ -28,13 +28,13 @@ const Cart = () => {
   const handleCheckout = () => {
     const db = getFirestore();
     const ordersCollection = db.collection("orders");
-
     ordersCollection
       .add(newOrder)
       .then((docRef) =>
         console.log("se creo el documento exitosamenet", docRef.id)
       )
       .catch((error) => console.log(error));
+    clear();
   };
 
   return (
@@ -67,7 +67,7 @@ const Cart = () => {
               ))}
           </table>
           <div className="vacio">
-            {!state && <p>Tu Carrito esta vacío!!</p>}
+            {!state && <p>Su Carrito esta vacio!!</p>}
           </div>
         </div>
         <div className="terminar">
