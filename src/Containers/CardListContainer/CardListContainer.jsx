@@ -16,7 +16,6 @@ const CardListContainer = () => {
     productsCollection
       .get()
       .then((querySnapshot) => {
-        console.log(querySnapshot);
         if (querySnapshot.empty) {
           console.log("No hay productos");
         } else {

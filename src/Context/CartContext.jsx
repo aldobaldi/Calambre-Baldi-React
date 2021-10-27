@@ -13,13 +13,11 @@ export const CartProvaider = ({ children }) => {
 
     if (isSame) {
       //modificar el  item con la misma id
-      console.log("ya existe");
       let repeatedProduct = cart.find((product) => product.item.id === item.id);
       repeatedProduct.quantity = repeatedProduct.quantity + quantity;
       let filteredCart = cart.filter((product) => product.item.id !== item.id);
       setCart([...filteredCart, repeatedProduct]);
     } else {
-      console.log("noexiste");
       //agregar nuevo item
       const newItem = { item, quantity };
       setCart((prevState) => [...prevState, newItem]);

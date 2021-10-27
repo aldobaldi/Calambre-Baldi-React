@@ -17,14 +17,12 @@ const ItemDetail = () => {
 
   React.useEffect(() => {
     setLoading(true);
-    // Apuntamos a la base de datos.
     const db = getFirestore();
-    // Apuntamos a una colección.
     const productsCollection = db.collection("products");
-    // Apuntamos a un elemento en específico.
     const product = productsCollection.doc(id);
 
     setLoading(true);
+
     product
       .get()
       .then((doc) => {
@@ -39,7 +37,6 @@ const ItemDetail = () => {
   }, [id]);
 
   //Contador
-
   const aumentar = () => {
     if (cantidad < producto.stock) {
       setCantidad((prevState) => prevState + 1);
@@ -48,7 +45,7 @@ const ItemDetail = () => {
     }
   };
   const disminuir = () => {
-    if (cantidad !== 0) {
+    if (cantidad !== 1) {
       setCantidad((prevState) => prevState - 1);
     } else {
       setCantidad((prevState) => prevState);
@@ -70,22 +67,25 @@ const ItemDetail = () => {
       )}
       {producto && (
         <div className="container">
-          <div className="imagen-container">
-            <figure className="imagen">
-              <img src={producto.image} alt="Foto del Producto" />
-            </figure>
-          </div>
+          <figure className="imagen">
+            <img src={producto.image} alt="Foto del Producto" />
+          </figure>
           <div className="info">
             <h1>{producto.title}</h1>
-            <p>Descripcion: {producto.description}</p>
-            <span>Id de Referencia: {producto.id}</span>
+            <p>
+              <strong>Descripcion:</strong> {producto.description}
+            </p>
             <h2>Precio U$S {producto.price}</h2>
-            <div>
-              <Counter aumentar={aumentar} disminuir={disminuir} />
-              <ClickCounter total={cantidad} />
-              <button onClick={addToCart}>Agregar Carrito</button>
+            <div className="comprar">
+              <div className="counter">
+                <Counter aumentar={aumentar} disminuir={disminuir} />
+                <ClickCounter total={cantidad} />
+              </div>
+              <button onClick={addToCart}>Agregar al Carrito</button>
+              <Link to="/Cart">
+                <button>Ir al Carrito</button>{" "}
+              </Link>
             </div>
-            <Link to="/Cart">Ir al Carro</Link>
           </div>
         </div>
       )}

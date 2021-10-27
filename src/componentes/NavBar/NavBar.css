@@ -1,6 +1,6 @@
 .navbar{
     font-family: Roboto;
-    height:4rem;
+    height:4.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -13,12 +13,14 @@
     align-items: center;
     justify-content: center; 
     padding-left: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar ul{
     list-style:none;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     margin: auto;
 }
 
@@ -27,32 +29,23 @@
     font-family: Staatliches;
 }
 
-.navbar span{
+.navbar li:hover{
+    transform: scale(1.1);
+    transition: 100ms ease-in; 
+}
+
+.log-cart{
+    display: flex;
+    flex-direction:row;
+}
+.log-cart span{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem;
 }
-
-.navbar button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem;
-    height: 2rem;
-    width: 6rem;
-    border-radius: 1.5rem;
-    color:white;
-    border:none;
-    background-color: rgb(233,90,92);
-}
-
-link {
-    text-Decoration: 'none';
-    color:'black'
-}
-
-.navbar li:hover{
-    transform: scale(1.05);
+.log-cart span:hover{
+    transform: scale(1.1);
     transition: 100ms ease-in; 
 }
